@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--描述员工和部门的关系
+-->
+    <bean id="dept1" class="com.cebbank.liuxiaoming.bean.Deparment"
+    p:id="1" p:name="技术部"></bean>
+
+    <bean id="emp1" class="com.cebbank.liuxiaoming.bean.Employee">
+        <property name="id" value="1"></property>
+        <property name="name" value="小三"></property>
+        <property name="dept" ref="dept1"></property>
+        <property name="dept.id" value="2"></property>
+        <property name="dept.name" value="科技部 "></property>
+    </bean>
+
+</beans>

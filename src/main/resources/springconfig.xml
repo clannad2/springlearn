@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--bean-实体对象
+ id 对象名 class全类名
+-->
+    <bean id="stu1" class="com.cebbank.liuxiaoming.bean.Student">
+        <!--使用属性set方法-->
+    <property name="id" value="1"></property>
+    <property name="name" value="Tom"></property>
+    <property name="age" value="20"></property>
+    </bean>
+
+    <bean id="stu2" class="com.cebbank.liuxiaoming.bean.Student" >
+        <!--使用带参构造方法方法-->
+        <constructor-arg name="id" value="2"></constructor-arg>
+        <constructor-arg name="name" value="Mike"></constructor-arg>
+        <constructor-arg name="age" value="30"></constructor-arg>
+    </bean>
+
+    <bean id="stu3" class="com.cebbank.liuxiaoming.bean.Student" >
+        <!--使用默认顺序，带参构造方法方法-->
+        <constructor-arg  value="3" index="0"></constructor-arg>
+        <constructor-arg value="akai" index="1"></constructor-arg>
+        <constructor-arg  value="50" index="2"></constructor-arg>
+    </bean>
+
+<!--    <bean id="stu4" class="com.cebbank.liuxiaoming.bean.Student" >-->
+<!--        &lt;!&ndash;使用默认顺序，带参构造方法方法&ndash;&gt;-->
+<!--        <constructor-arg  value="3" type="java.lang.Integer" index="0"></constructor-arg>-->
+<!--        <constructor-arg value="akai" type="java.lang.String" index="1"></constructor-arg>-->
+<!--        <constructor-arg  value="50" type="java.lang.Integer" index="2"></constructor-arg>-->
+<!--    </bean>-->
+
+    <!--命名空间-->
+    <bean id="stu5" class="com.cebbank.liuxiaoming.bean.Student"
+    p:id="10" p:name="uki" p:age="15"/>
+
+    <bean id="stu6" class="com.cebbank.liuxiaoming.bean.Student">
+        <!--使用属性set方法-->
+        <property name="id" value="1"></property>
+        <property name="name">
+            <value><![CDATA[《小王子》]]></value>
+        </property>
+        <property name="age" value="20"></property>
+    </bean>
+</beans>
