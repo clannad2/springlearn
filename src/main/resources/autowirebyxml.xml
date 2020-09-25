@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="address1" class="com.cebbank.liuxiaoming.autowire.bean.Address">
+            <property name="city" value="房山"/>
+            <property name="province" value="北京"/>
+    </bean>
+
+    <bean id="car" class="com.cebbank.liuxiaoming.autowire.bean.Car">
+        <property name="brand" value="宝马"/>
+        <property name="price" value="150000"/>
+    </bean>
+
+    <!--手动调用bean对象-->
+<!--    <bean id="teacher1" class="com.cebbank.liuxiaoming.autowire.bean.Teacher">-->
+<!--        <property name="name" value="大圣"/>-->
+<!--        <property name="address" ref="address"/>-->
+<!--        <property name="car" ref="car"/>-->
+<!--    </bean>-->
+
+<!--    自动装配
+ autowire default 默认不装配
+ byName 根据名字查找 beanid与属性值相同
+ -->
+    <bean id="teacher2" class="com.cebbank.liuxiaoming.autowire.bean.Teacher" autowire="byType">
+        <property name="name" value="二师兄"/>
+    </bean>
+</beans>
