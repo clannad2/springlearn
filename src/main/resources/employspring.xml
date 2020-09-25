@@ -5,15 +5,14 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 <!--描述员工和部门的关系
 -->
+    <!--注册自定义后置处理器-->
+    <bean class="com.cebbank.liuxiaoming.processor.MyProfessor"/>
     <bean id="dept1" class="com.cebbank.liuxiaoming.bean.Deparment"
     p:id="1" p:name="技术部"></bean>
 
-    <bean id="emp1" class="com.cebbank.liuxiaoming.bean.Employee">
+    <bean id="emp1" class="com.cebbank.liuxiaoming.bean.Employee" init-method="init" destroy-method="destory">
         <property name="id" value="1"></property>
-        <property name="name" value="小三"></property>
-        <property name="dept" ref="dept1"></property>
-        <property name="dept.id" value="2"></property>
-        <property name="dept.name" value="科技部 "></property>
     </bean>
+
 
 </beans>

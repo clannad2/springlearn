@@ -6,6 +6,7 @@ public class Employee {
     private Deparment dept;
 
     public Employee() {
+        System.out.println("bean 对象生成");
     }
 
     public Employee(Integer id, String name) {
@@ -14,6 +15,7 @@ public class Employee {
     }
 
     public void setId(Integer id) {
+        System.out.println("bean 设置属性");
         this.id = id;
     }
 
@@ -44,5 +46,13 @@ public class Employee {
                 ", name='" + name + '\'' +
                 ", dept=" + dept +
                 '}';
+    }
+
+    public void init(){
+        System.out.println("bean 初始化完成");
+    }
+
+    public void destory(){
+        System.out.println("bean 销毁");
     }
 }

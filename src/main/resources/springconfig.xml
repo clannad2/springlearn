@@ -6,7 +6,7 @@
 <!--bean-实体对象
  id 对象名 class全类名
 -->
-    <bean id="stu1" class="com.cebbank.liuxiaoming.bean.Student">
+    <bean id="stu1" class="com.cebbank.liuxiaoming.bean.Student" init-method="" destroy-method="">
         <!--使用属性set方法-->
     <property name="id" value="1"></property>
     <property name="name" value="Tom"></property>
