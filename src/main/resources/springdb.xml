@@ -2,10 +2,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+    <context:component-scan base-package="com.cebbank.liuxiaoming.transaction"/>
+
 
     <!--引入属性文件
     locationg：类路径下的地址-->
@@ -19,4 +22,17 @@
         <property name="url" value="${db.url}"/>
         <property name="driverClassName" value="${db.driverClass}"/>
     </bean>
+
+<!--    配置DbUtils jdbc工具类-->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+<!--        使用数据源-->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+<!--    声明事务 在容器中注册事务管理器-->
+    <bean id="dataSourceTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+<!--    启动事务注解支持-->
+    <tx:annotation-driven transaction-manager="dataSourceTransactionManager"/>
 </beans>

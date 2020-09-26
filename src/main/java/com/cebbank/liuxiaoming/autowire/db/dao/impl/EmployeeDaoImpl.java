@@ -3,7 +3,7 @@ package com.cebbank.liuxiaoming.autowire.db.dao.impl;
 import com.cebbank.liuxiaoming.autowire.db.dao.EmployeeDao;
 import org.springframework.stereotype.Repository;
 
-@Repository
+@Repository("edi1")
 public class EmployeeDaoImpl implements EmployeeDao {
 
     public EmployeeDaoImpl() {
@@ -11,7 +11,8 @@ public class EmployeeDaoImpl implements EmployeeDao {
     }
 
     @Override
-    public void save() {
-
+    public int save() {
+        System.out.println("保存员工信息1 ");
+        return 0;
     }
 }
